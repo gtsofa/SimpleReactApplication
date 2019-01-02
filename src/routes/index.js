@@ -1,19 +1,26 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import App from '../Components/App';
-import SignUp from '../Containers/SignUp';
-import Login from '../Containers/Login';
+import { HashRouter, Route, Switch } from 'react-router-dom';
+import App from '../components/App';
+import SignUp from '../components/SignUp';
+import Header from '../components/Header';
+import About from '../components/About';
 
 const AppRoutes = () => {
 
   return (
-    <BrowserRouter>
+    <HashRouter>
+        <div>
+            <Header/>
         <Switch>
-          <Route exact path="/" component={App} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/login" component={Login} />
+            <div className="container">
+                <Route exact path="/" component={App} />
+                <Route exact path="/signup" component={SignUp} />
+                <Route exact path="/about" component={About}/>
+          </div>
         </Switch>
-    </BrowserRouter>
+        </div>
+    </HashRouter>
+    
   );
 };
 export default AppRoutes;
